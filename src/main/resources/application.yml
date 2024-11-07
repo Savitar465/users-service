@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: users
+  datasource:
+    name: users_db
+    url: jdbc:mysql://localhost:3306
+    username: root
+    password: Savitar@123
+    hikari:
+      connectionTestQuery: select 1
+      maximum-pool-size: 2
+      connection-timeout: 60000
+server:
+  port: 8081
