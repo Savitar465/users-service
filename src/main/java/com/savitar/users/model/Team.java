@@ -1,22 +1,28 @@
 package com.savitar.users.model;
 
+import com.savitar.users.model.shared.EntityAud;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
-import java.time.Instant;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Getter
 @Setter
+@SuperBuilder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "teams", schema = "users_db")
-public class Team {
+public class Team extends EntityAud {
     @Id
     @Column(name = "team_id", nullable = false, length = 200)
     private String teamId;
@@ -29,21 +35,6 @@ public class Team {
 
     @Column(name = "type", nullable = false, length = 5)
     private String type;
-
-    @Column(name = "_status", nullable = false)
-    private Integer status;
-
-    @Column(name = "creator", nullable = false, length = 200)
-    private String creator;
-
-    @Column(name = "created_at", nullable = false)
-    private Instant createdAt;
-
-    @Column(name = "updater", nullable = false, length = 200)
-    private String updater;
-
-    @Column(name = "updated_at", nullable = false)
-    private Instant updatedAt;
 
     @OneToMany(mappedBy = "teamsTeam")
     private Set<UsersTeam> usersTeams = new LinkedHashSet<>();

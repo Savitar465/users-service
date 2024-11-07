@@ -1,19 +1,24 @@
 package com.savitar.users.model;
 
+import com.savitar.users.model.shared.EntityAud;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.time.Instant;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@SuperBuilder
 @Entity
 @Table(name = "rols", schema = "users_db")
-public class Rol {
+public class Rol extends EntityAud {
     @Id
     @Column(name = "rol_id", nullable = false, length = 200)
     private String rolId;
@@ -23,20 +28,5 @@ public class Rol {
 
     @Column(name = "description", nullable = false)
     private Integer description;
-
-    @Column(name = "_status", nullable = false)
-    private Integer status;
-
-    @Column(name = "creator", nullable = false, length = 200)
-    private String creator;
-
-    @Column(name = "created_at", nullable = false)
-    private Instant createdAt;
-
-    @Column(name = "updater", nullable = false, length = 200)
-    private String updater;
-
-    @Column(name = "updated_at", nullable = false)
-    private Instant updatedAt;
 
 }
