@@ -20,12 +20,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public User saveUser(UserRequest userRequest, Transaction transaction) {
         User user = User.builder()
-                .names(userRequest.getNames())
-                .lastNames(userRequest.getLastNames())
+                .name(userRequest.getName())
+                .lastName(userRequest.getLastName())
                 .email(userRequest.getEmail())
                 .username(userRequest.getUsername())
                 .password(userRequest.getPassword())
-                .birthday(userRequest.getBirthday())
                 .status(StatusEntity.ACTIVE.getStatus())
                 .creator(transaction.getTrUsuarioId())
                 .createdAt(transaction.getTrFecha())

@@ -43,10 +43,10 @@ public class User extends EntityAud {
     private String password;
 
     @Column(name = "names", nullable = false, length = 800)
-    private String names;
+    private String name;
 
     @Column(name = "last_names", nullable = false, length = 800)
-    private String lastNames;
+    private String lastName;
 
     @Column(name = "birthday", nullable = false)
     private Instant birthday;
