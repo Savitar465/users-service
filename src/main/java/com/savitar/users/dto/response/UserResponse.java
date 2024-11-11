@@ -15,7 +15,7 @@ public class UserResponse {
     private String userId;
     private String email;
     private String username;
-    private String names;
-    private String lastNames;
+    private String name;
+    private String lastName;
     private Instant birthday;
 }
